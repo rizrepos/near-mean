@@ -1,0 +1,32 @@
+<table class="container table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Distance
+            </th>
+            <th>
+                Co-ordinates
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let shop of shops | paginate: { itemsPerPage: 1, currentPage: p }">
+            <td class="col-md-2">
+                {{ shop.obj.name }}
+            </td>
+            <td class="col-md-2">
+                {{ shop.dis }}
+            </td>
+            <td class="col-md-4">
+                {{ shop.obj.geo.coordinates }}
+            </td>
+        </tr>
+
+    </tbody>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+</table>
